@@ -21,25 +21,33 @@ void imprimirTablero(char matriz[][3]){
     }
 }
 
-bool ganador(char matriz[][3]){
-    bool gano = false;
-            if((matriz[0][0] == 'X' && matriz[0][1] == 'X' && matriz[0][2] == 'X') || (matriz[0][0] == 'O' && matriz[0][1] == 'O' && matriz[0][2] == 'O')){
-                gano=true;
-            }
-            if((matriz[1][0] == 'X' && matriz[1][1] == 'X' && matriz[1][2] == 'X') || (matriz[1][0] == 'O' && matriz[1][1] == 'O' && matriz[1][2] == 'O')){
-                gano=true;
-            }
-            if((matriz[2][0] == 'X' && matriz[2][1] == 'X'  && matriz[2][2] == 'X') || (matriz[2][0] == 'O' && matriz[2][1] == 'O' && matriz[2][2] == 'O')){
-                gano=true;
-            }
+int ganador(char matriz[][3], int gano){
+    if((matriz[0][0] == 'X') && (matriz[0][1] == 'X') && (matriz[0][2] == 'X')){
+        gano=1;
+    }else{
+        gano=
+    }
+    if((matriz[0][0] == 'O') && (matriz[0][1] == 'O') && (matriz[0][2] == 'O')){
+        gano=1;
+    }
+    if((matriz[1][0] == 'X') && (matriz[1][1] == 'X') && (matriz[1][2] == 'X')){
+        gano=1;
+    }
+    if((matriz[1][0] == 'O') && (matriz[1][1] == 'O') && (matriz[1][2] == 'O')){
+        gano=1;
+    }
+    if((matriz[2][0] == 'X') && (matriz[2][1] == 'X')  && (matriz[2][2] == 'X')){
+        gano=1;
+    }
+    if((matriz[2][0] == 'O') && (matriz[2][1] == 'O') && (matriz[2][2] == 'O')){
+        gano=1;
+    }
     return gano;
 }
 
 int main(){
     string jugador1; //Se declaran las variables para guardar los nombres de los jugadores
     string jugador2;
-    int fila;
-    int columna;
 
     cout << "Ingrese el nombre del primer jugador" << endl; //Se pide el nombre del primer jugador
     getline(cin, jugador1);//Se guarda en la variable
@@ -48,10 +56,10 @@ int main(){
     getline(cin, jugador2);//Se guarda en la variable
 
     int decision = 1; //Variable para saber si se repetira el proceso varias veces
-    bool gano = false;
+    int gano = 0;
     int cont1 = 0;//Se declaran los contadores que iran subiendo segun los numeros aleatorios vayan saliendo
     int cont2 = 0;
-    while(decision == 1 && gano== false){
+    while(decision == 1 && gano==0){
 
         char ocupado[3][3];//Se inicializa la matriz ocupado en blanco para que se vaya rellenando conforme las posiciones se acaban
         char matriz[3][3] = {{'-','-','-'},{'-','-','-'},{'-','-','-'}};//Se genera un tablero
@@ -65,8 +73,7 @@ int main(){
             cont2++;
         }
 
-        int k=0;
-        for(k;k<=8;){ //Se repite el proceso hasta obtener las 9 casillas del gato
+        for(int k=0;k<=8;){ //Se repite el proceso hasta obtener las 9 casillas del gato
             int i=0;//Referencia la fila
             int j=0;//Referencia la columna
 
@@ -106,10 +113,11 @@ int main(){
             ocupado[i][j] = 'D';//Se agrega un D solo para rellenar esa casilla y compararla cuando se intente agrgar un movimiento
             k++;
 
-            ganador(matriz);
+            ganador(matriz, gano);
+            cout<<gano<<endl;
             imprimirTablero(matriz);
 
-            if(k==9 || gano==true){
+            if(k==9){
                 break;//Verificador de que solo se jueguen las 9 casillas del tablero
             }
 
@@ -151,12 +159,9 @@ int main(){
             ocupado[i][j] = 'D';//Se asigna una D para rellenar y comprobar que no se intente ingresar a esa casilla mas adelante
             k++;
 
-            ganador(matriz);
+            ganador(matriz, gano);
+            cout<<gano<<endl;
             imprimirTablero(matriz);
-
-            if(gano==true){
-                break;//Verificador si alguien ya gano en linea horizontal
-            }
 
         }
 
