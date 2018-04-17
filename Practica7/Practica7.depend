@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1523912124 source:f:\programacion c++\practica6\main.cpp
+	"Cuenta.h"
+	"Cliente.h"
+	<string>
+
+1523918632 f:\programacion c++\practica6\include\cuenta.h
+	"Cliente.h"
+	<string>
+	<iostream>
+
+1523919218 f:\programacion c++\practica6\include\cliente.h
+	<string>
+	<iostream>
+
+1523919048 source:f:\programacion c++\practica6\src\cliente.cpp
+	"Cliente.h"
+
+1523959318 source:e:\programacion c++\practica6\main.cpp
+	"Cuenta.h"
+	"Cliente.h"
+	<string>
+
+1523959318 e:\programacion c++\practica6\include\cuenta.h
+	"Cliente.h"
+	<string>
+	<iostream>
+
+1523960096 e:\programacion c++\practica6\include\cliente.h
+	<string>
+	<iostream>
+
+1523958340 source:e:\programacion c++\practica6\src\cliente.cpp
+	"Cliente.h"
+
+1523959914 source:e:\programacion c++\practica6\src\cuenta.cpp
+	"Cuenta.h"
+	<string>
+
